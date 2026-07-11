@@ -486,6 +486,7 @@ async function addingSongs () {
             songName : songNamed,
             songUrl : songUrld,
         })
+        window.location.href = "main."
     }
     async function imaged () {
         const docRef = await addDoc(collection(db,"Music"), {
@@ -493,6 +494,7 @@ async function addingSongs () {
             songUrl : songUrld,
             songImage : songImaged
         })
+        window.location.href = "main.html"
     }
 
         if (!songImaged) {
