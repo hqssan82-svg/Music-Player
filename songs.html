@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player -Songs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="topbar-container"></div>
+    <div id="searchbar-div">
+        <input type="text" id="searchbar">
+        <button id="searchbar-button">Enter</button>
+    </div>
+    <div id="songs-container"></div>
+    <div id="bottombar">
+        <button id="up-button">▲</button>
+        <div id="bottombar-controls">
+            <div id="buttons-div">
+                <input type="range" id="volume-bar" value="100">
+            <button id="stop-button" class="bottombar-buttons">⏸</button>
+            <button id="loop-button" class="bottombar-buttons">↻</button>
+            </div>
+            <input type="range" id="progress-bar">
+            <h1 id="song-name-h1"></h1>
+        </div>
+    </div>
+    <script src="index.js" type="module"></script>
+</body>
+</html>

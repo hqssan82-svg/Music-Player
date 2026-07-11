@@ -1,0 +1,677 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+html , body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+
+    color: white;
+    background-color: #262626;
+
+    position: relative;
+    overflow: hidden;
+}
+.main-div {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+}
+#color-div {
+    height: 90vh;
+    width: 100vw;
+    background-color: #1a1a1a;
+
+    z-index: 1;
+    position: absolute;
+    top: 5vh;
+    left: 0;
+
+    opacity: 90%;
+
+    transition: all 0.5s ease;
+    
+}
+#picture-div {
+    height: 90vh;
+    width: 100vw;
+    background-color: black;
+    position: relative;
+    overflow: hidden;
+
+    transition: all 0.5s ease;
+    --bg-pictureImage : url("default_background.jpg");
+}
+#picture-div::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    background-image: var(--bg-pictureImage);
+    background-size: cover;
+    background-position: center;
+    filter: blur(10px);
+    z-index: 0;
+}
+
+/*Topbar*/
+
+#topbar-container {
+    width: 100vw;
+    height: 5vh;
+    background-color: #262626;
+    position: relative;
+}
+#topbar {
+    background-color: #1a1a1a;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+
+    display: flex;
+    justify-content: right;
+
+    border-bottom-left-radius: 0.4rem;
+    border-bottom-right-radius: 0.4rem;
+
+    animation-name: topbarAnimations;
+    animation-duration: 0.5s;
+    z-index: 10;
+    position: relative;
+}
+.topbar-buttons {
+    height: 3vh;
+    margin-right: 1vw;
+    margin-left: 1vw;
+    margin-top: 1vh;
+
+    background-color: transparent;
+    border: none;
+    color: white;
+
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1rem;
+
+    transition: all 0.5s ease;
+    animation-name: topbarButtons;
+    animation-duration: 1s;
+}
+.on {
+    text-decoration: underline;
+    text-decoration-color: red;
+    font-weight: bold;
+    color: red;
+}
+.topbar-buttons:hover {
+    color: red;
+}
+#topbar.songs {
+    border-bottom-left-radius: 0px;
+}
+
+@keyframes topbarAnimations {
+    0% {
+        transform: scaleX(0);
+    }
+    100% {
+        transform: scaleX(100%);
+    }
+}
+@keyframes topbarButtons {
+    0%{
+        transform: scale(0);
+    }
+    75% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(100%);
+    }
+}
+
+/*Bottombar*/
+
+#bottombar {
+    height: 5vh;
+    width: 100vw;
+
+    margin: 0;
+    bottom: 0;
+
+    transition: all 0.5s ease;
+    position: absolute;
+
+    border-top-left-radius: 0.6rem;
+    border-top-right-radius: 0.6rem;
+
+    background-color: #1a1a1a;
+    z-index: 10;
+
+}
+#up-button {
+    background-color: transparent;
+    border: none;
+    color: white;
+
+    width: 2vh;
+}
+#bottombar-controls {
+    width: 95vw;
+
+    bottom: 2vh;
+    left: 3vw;
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+
+    transition: all  0.5s ease;
+}
+#progress-bar {
+    width: 40vw;
+
+    transform-origin: left;
+    animation-name: progressbar-animation;
+    animation-duration: 1s;
+}
+.bottombar-buttons {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+
+    height: 1rem;
+    width: 1rem;
+    margin-right: 1rem;
+
+    transition: all 0.5s ease;
+
+    animation-name: bottombarButtonsAnimation;
+    animation-duration: 3s;
+}
+#buttons-div {
+    transition: all 0.5s ease;
+}
+#song-name-h1 {
+    max-width: 300px;
+    width: 300px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    margin-right: 5rem;
+}
+#volume-bar {
+    animation-name: progressbar-animation;
+    animation-duration: 1s ;
+    transform-origin: left;
+}
+
+@keyframes progressbar-animation {
+    0% {
+        transform: scaleX(0%);
+    }
+    100% {
+        transform: scaleX(100%);
+    }
+}
+@keyframes bottombarButtonsAnimation {
+    0% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+/*Searchbar*/
+
+#searchbar-div {
+    height: 5vh;
+    width: 20vw;
+    background-color: #1a1a1a;
+
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid black;
+    
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+
+    animation-name: searchbar;
+    animation-duration: 2s;
+    transform-origin: left;
+}
+#searchbar{
+    margin-left: 3vw;
+    border-radius: 0.3rem;
+    background-color: #262626;
+    color: white;
+    border: 1px solid black;
+}
+#searchbar-button {
+    border-radius: 0.3rem;
+    background-color: #262626;
+    color: white;
+    border: 1px solid black;
+    margin-left: 1rem;
+    transition: all 0.5s ease;
+}
+#searchbar-button:hover {
+    background-color: #383838;
+}
+
+@keyframes searchbar {
+    0% {
+        transform:scaleX(0%);
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        background-color: rgb(87, 87, 87);
+        opacity: 40%;
+    }
+    80% {
+        transform:scaleX(100%);
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        background-color: rgb(87, 87, 87);
+        opacity: 70%;
+    }
+    100% {
+        transform:scaleX(100%);
+        border-bottom-right-radius: 1rem;
+        border-bottom-left-radius: 1rem;
+    }
+}
+/*Songs Container*/
+
+#songs-container {
+    background-color: black;
+}
+#songs-container {
+    height: 85vh;
+    width: 100vw;
+    background-color: black;
+    position: relative;
+    overflow: auto;
+    overflow-x: hidden;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5vw;
+    background-color: #302C33;
+
+    transition: all 0.5s ease;
+}
+#songs-container::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    background-image: url("second default.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: blur(10px);
+    z-index: 0;
+    
+}
+
+/*Song Divs*/
+#dataDiv {
+    position: relative;
+    z-index: 1;
+    width: 15vw;
+    height: 15vh;
+    background: transparent;
+
+    display: flex;
+    flex-direction: column;
+
+    margin-left: 3rem;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+
+    animation-name: songDivAnimation;
+    animation-duration: 0.5s;
+
+    position: absolute;
+    bottom: 5vh;
+    right: 83vw;
+
+    transition: all 0.5s ease;
+}
+#songDiv {
+    position: relative;
+    z-index: 1;
+    width: 15vw;
+    height: 15vh;
+    background: transparent;
+
+    display: flex;
+    flex-direction: column;
+
+    margin-left: 3rem;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+
+    animation-name: songDivAnimation;
+    animation-duration: 0.5s;
+}
+#songImageDiv {
+    height: 5vh;
+    background-color: #383838;
+    background-position: center;
+    position: relative;
+    overflow: auto;
+    overflow-x: hidden;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+
+    transition: all 0.5s ease;
+    --bg-image: url("https://4kwallpapers.com/images/walls/thumbs_2t/26403.jpg");
+}
+#songImageDiv::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: var(--bg-image);
+    background-size: cover;
+    background-position: center;
+    filter: blur(0px);
+    z-index: 1;
+    border-radius: inherit;
+    transition: all 0.5s ease;
+    background-color: #383838;
+    
+}
+#songImageDiv:hover {
+    height: 10vh;
+}
+#songNameDiv {
+    background-color: #1a1a1a;
+    height: 10vh;
+
+    color: black;
+    display: flex;
+
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+
+    justify-content: space-evenly;
+    align-items: center;
+    transition: all 0.5s ease;
+}
+#songNameLabel {
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.5rem;
+
+    max-width: 10vw;
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+#playSongButton {
+    height: 1.5rem;
+    width: 1.5rem;
+
+    font-size: 1.5rem;
+
+    background-color: transparent;
+    border: none;
+    transition: all 0.5s ease;
+}
+#playSongButton:hover {
+    color: white;
+}
+@keyframes songDivAnimation {
+    0% {transform: scale(0%);}
+    100% {
+        transform: scale(100%);
+    }
+}
+
+
+/*Admin*/
+
+#main-admin-div {
+    height: 95vh;
+    background-color: #000000;
+    display: flex;
+    flex-direction: column;
+}
+#top-div {
+    height: 85vh;
+    background-color: #000000;
+
+    display: flex;
+}
+#register-div {
+    flex: 2;
+    background-color: #28282B;
+    
+    border-bottom-right-radius: 2rem;
+    border-top-right-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#edit-div {
+    flex: 1;
+
+    background-color: #242124;
+    
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+
+    display: flex;
+    flex-direction: column;
+
+
+}
+#admin-search {
+    flex: 1;
+    background-color: #151515;
+    border-top-left-radius: 2rem;
+
+    height: 5vh;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#admin-search-input {
+    background-color: #1a1a1a;
+    color: white;
+    border: none;
+    border-radius: 0.3rem;
+
+    height: 5vh;
+    width: 20vw;
+
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1rem;
+
+    margin-right: 1rem;
+}
+#admin-search-button {
+    background-color: #1a1a1a;
+    color: white;
+    border: none;
+    border-radius: 0.2rem;
+
+    height: 5vh;
+    width: 5vw;
+}
+#admin-search-button:hover {
+    background-color: #262626;
+}
+#edit-songs-div {
+    flex: 10;
+
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+#password-div {
+    flex: 1;
+    background-color: #151515;
+    border-bottom-left-radius: 2rem;
+}
+#admin-bottom-div {
+    height: 10vh;
+    background-color: #1a1a1a;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#settings-button {
+    background-color: #151515;
+    border-radius: 3px;
+    color: white;
+    border: none;
+
+    width: 50vw;
+    height: 5vh;
+
+    transition: all 0.5s ease;
+}
+#settings-button:hover {
+    background-color: #242124;
+}
+
+.admin-inputs {
+    background-color: #151515;
+    border: none;
+    color: white;
+    border-radius: 0.5rem;
+
+    height: 5vh;
+    width: 30vw;
+
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1rem;
+}
+.admin-buttons {
+    background-color: #151515;
+    border: none;
+    color: white;
+    border-radius: 0.3rem;
+
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1rem;
+
+    height: 5vh;
+    width: 30vw;
+    transition: all 0.5s ease;
+}
+.admin-buttons:hover {
+    background-color: #262626;
+}
+#add-a-song {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 2rem;
+    color: white;
+}
+
+#listDiv {
+    background-color: #151515;
+    margin-top: 2rem;
+    display: flex;
+    padding: 10px;
+
+    align-items: center;
+}
+#listImage {
+    background-position: center;
+    background-size: cover;
+    height: 3rem;
+    width: 3rem;
+
+    margin-left: 1rem;
+    border-radius: 0.2rem;
+    border: 2px solid black;
+}
+#nameLabel {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1rem;
+
+    margin-left: 1rem;
+}
+#edit-button {
+    margin-left: 2rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1rem;
+    background-color: #242124;
+    border: none;
+
+    height: 3vh;
+    width: 5vw;
+    border-radius: 0.5rem;
+    color: white;
+
+    transition: all 0.5s ease;
+}
+#edit-button:hover {
+    background-color: #302C33;
+}
+#main-edit-div {
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#go-back-div {
+    height: 5vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+
+    background-color: #151515;
+    padding-left: 2rem;
+}
+#go-back-button {
+    background-color: #262626;
+    border: none;
+    color: white;
+    border-radius: 0.5rem;
+
+    height: 3vh;
+    width: 10vw;
+}
+#properties-div {
+    height: 85vh;
+    width: 70vw;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: space-evenly;
+
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    border: 2px solid black;
+    border-radius: 2rem;
+}
+
+/*▶ ⟲*/
