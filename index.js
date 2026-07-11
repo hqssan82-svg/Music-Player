@@ -83,7 +83,7 @@ function upButtonFunctionality() {
 
     upButton.onclick = () => {
 
-        if (currentPath.includes("Main.html")) {
+        if (currentPath.includes("main.html")) {
             const dataDiv = document.getElementById("dataDiv")
             if (barUp == false) {
             pictureDiv.style.height = "80vh"
@@ -147,7 +147,7 @@ function topbarImport () {
         const adminButton = document.getElementById("admin-button")
         const topbar = document.getElementById("topbar")
 
-        if (currentPath.includes("Main.html")) {
+        if (currentPath.includes("main.html")) {
             mainButton.classList.add("on")
             console.log("added on")
         }
@@ -168,7 +168,7 @@ function topbarImport () {
             topbar.appendChild(songReminder)
         }
         mainButton.onclick = () => {
-            window.location.href ="Main.html"
+            window.location.href ="main.html"
         }
         songsButton.onclick= () => {
             window.location.href = "songs.html"
@@ -644,7 +644,7 @@ if (!currentPath.includes("edit.html")  ) {
     topbarImport()
 }
 
-if (currentPath.includes("Main.html")){
+if (currentPath.includes("main.html")){
     upButtonFunctionality()
     console.log("something")
     loadingSavedSongs()
